@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if form.errors %}
+<div class="alert alert-danger"  role="alert">
+  {{form.errors}}
+</div>
+{% endif %}
+    <div class="container content" style="text-align: center;">
+        <div style="width: 300px; display: inline-block;">
+            <style type="text/css">
+                .form-control {
+                    border-radius: 10px;
+                }
+            </style>
+            <h2>Registrasiýa</h2>
+            <form method="post" class="">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="inputText">Ulanyjy ady:</label>
+                <input type="text" name="username" class="form-control" id="inputText" placeholder="Myrat_Çyra">
+                </div>
+                <div class="form-group">
+                <label for="inputText">Ady:</label>
+                <input type="text" name="first_name" class="form-control" id="inputText" placeholder="Myrat">
+                </div>
+                <div class="form-group">
+                <label for="inputText">Familiýa:</label>
+                <input type="text" name="last_name" class="form-control" id="inputText" placeholder="Myradow">
+                </div>
+                <div class="form-group">
+                <label for="inputEmail">Email (hökman däl):</label>
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="myratmyradow@gmail.com">
+                </div>
+                <div class="form-group">
+                <label for="inputPassword">Password:</label>
+                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                <label for="inputPassword">Password confirm:</label>
+                <input type="password" name="password_confirm" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+                <input type="submit" class="btnn info" value="Регистрация">
+            </form>
+        </div>
+    </div>
+{% endblock %}

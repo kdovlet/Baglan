@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container content" style="text-align: center;">
+        <div style="display: inline-block; width: 300px;">
+            <h2>Giriş</h2>
+            <form method="post" class="bootstrap-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btnn success pl-5 pr-5" value="Gir">
+            </form>
+            <br>
+            <p>Akkaundyn yokmy? <a href="{% url 'register' %}">Registrasiya</a></p>
+        </div>
+    </div>
+{% endblock %}

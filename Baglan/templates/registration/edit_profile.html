@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if form.errors %}
+<div class="alert alert-danger"  role="alert">
+  {{form.errors}}
+</div>
+{% endif %}
+    <div class="container content" style="text-align: center;">
+        <div style="display: inline-block; width: 400px;">
+            <h2>Profiliňi üýtget</h2>
+            <form method="post" class="bootstrap-form" enctype="multipart/form-data">
+                {% csrf_token %}
+            
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Awataryny saýla</label>
+                    <input name="avatar" type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <div class="form-group">
+                    <label for="inputText">Öz barada:</label>
+                    <textarea type="text" name="bio" style="height: 100px;" class="form-control" id="inputText" >{{user.profile.bio}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="example-date-input">Doglan sene</label>
+                    <input name="birth_date" class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                </div>
+                <div class="form-group">
+                      <label for="inputState">Jynsy</label>
+                      <select id="inputState" name="gender" class="form-control">
+                        <option>Erkek</option>
+                        <option>Aýal</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                      <label for="inputState">Gatnaşyklar</label>
+                      <select id="inputState" name="relationship" class="form-control">
+                        <option>Hiç</option>
+                         <option>Ýeke</option>
+                          <option>Gatnaşyklarda</option>
+                           <option>Meşgul</option>
+                           <option>Çylşyrymly</option>
+                      </select>
+                </div>
+                <input type="submit" class="btnn info" value="Üýtet">
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container content">
+        <center><h2 style="">{{ selected_user.get_full_name }}</h2></center>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <center>
+                {% if selected_user.profile.avatar.name %}
+                    
+                    <img src="{{ selected_user.profile.avatar.url }}" class="avatar-img img-thumbnail">
+                {% else %}
+              
+                    <img src="{% static 'img/user.jpg' %}" class="avatar-img img-thumbnail">
+
+                {% endif %}
+               
+          
+                {% if selected_user.id == user.id %}
+                  <hr>
+                    <tr>
+                    <a href="{% url 'edit_profile' %}" >
+                        <button class="btnn success mb-1">
+                            Profiliňi üýtget
+                        </button>
+                    </a>
+                    <br>
+                    <a href="{% url 'logout' %}" >
+                        <button class="btnn info mb-1">
+                            Çyk
+                        </button>
+                    </a>
+                </tr>
+                 <br>
+
+                {% endif %}
+
+            </center>
+            </div>
+            <div class="col-sm-6 mt-2">
+               <table class="mr-1 table table-hover">
+                   <tr>
+                       <td scope ="row"><b>Doly ady:</b></td>
+                       <td>{{ selected_user.get_full_name }}</td>
+                   </tr>
+                   <tr>
+                       <td scope="row"><b>Email:</b></td>
+                       <td>{{ selected_user.email }}</td></td>
+                   </tr>
+                    <tr>
+                       <td scope="row"><b>Şäher:</b></td>
+                       <td>{{ selected_user.profile.city }}</td>
+                   </tr>
+                    <tr>
+                       <td scope="row"><b>Doglan senesi:</b></td>
+                       <td>{{ selected_user.profile.birth_date|date:"d M Y" }}</td>
+                    </tr>
+                     <tr>
+                       <td scope="row"><b>Jynsy:</b></td>
+                       <td>{{ selected_user.profile.get_gender_display }}</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><b>Gatnaşyklar ýagdaýy:</b></td>
+                        <td>{{ selected_user.profile.get_relationship_display }}</td>
+                    </tr>
+               </table>
+               <div class="container">
+               <h6><b>Öz barada:</b></h6>
+                <p class="container">{{ selected_user.profile.bio|linebreaks }}</p>
+                </div>
+        
+        </div>
+    </div>
+{% endblock %}

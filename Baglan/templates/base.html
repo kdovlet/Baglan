@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини Соцсеть</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-4/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-4/bootstrap-grid.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-4/bootstrap-reboot.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</head>
+<body>  
+     <style type="text/css">
+                                .btnn {
+                                  min-width: 213px;
+                                      border-radius: 25px;
+                                      background-color: white;
+                                      color: rgb(173,35,173);
+                                      padding: 7px 14px;
+                                      font-size: 16px;
+                                      cursor: pointer;
+                                    }
+
+                                    /* Green */
+                                    .success {
+                                         border: 2px solid rgb(173,35,173);
+                                        background-color: white;
+                                    }
+                                    
+                                    .success:hover {
+                                      background: rgb(173,35,173);
+                                      background: linear-gradient(270deg, rgba(173,35,173,1) 15%, rgba(88,37,131,1) 85%);
+                                      color: white;
+                                    }
+                                    .info {
+                                        border:2px solid rgb(131,58,180);
+                                        background-color: white;
+                                    }
+                                    .info:hover {
+                                        background: linear-gradient(98deg, rgba(131,58,180,1) 0%, rgba(178,104,137,1) 50%, rgba(252,176,69,1) 100%);
+                                        color: white;
+                                    }
+                            </style>
+    {% include 'blocks/navbar.html' %}
+    {% include 'blocks/messages.html' %}
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

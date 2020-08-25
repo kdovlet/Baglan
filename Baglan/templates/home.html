@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container content">
+        <h2 class="text-center">Baglana Hoş Geldiňiz!</h2>
+        <div class="text-center">
+            <img src="{% static 'img/Banner v1.0.jpg' %}" style="
+            width: 320px;
+            height: 180px;
+            max-width: 480px;
+            max-height: 270px;
+            object-fit: contain;
+            ">
+            <br>
+            <br>
+            <br>
+            <a href="{% url 'login' %}" class="btnn info">Gir</a>
+            <a href="{% url 'register' %}" class="btnn success">Registrasiýa</a>
+        </div>
+    </div>
+{% endblock %}
